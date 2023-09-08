@@ -1,23 +1,18 @@
 <template>
   <div id="app">
-    <!-- <BlogPost></BlogPost> -->
-    <ShowBlog></ShowBlog>
+    <Header/>
+    <router-view/>
   </div>
 </template>
 
 <script>
-// import BlogPost from './components/BlogPost.vue';
-import ShowBlog from './components/ShowBlog.vue';
-
+import Header from "@/components/Header.vue"
 export default {
-  name: 'App',
   components:{
-    // BlogPost,
-    ShowBlog
+    Header
   }
 }
 </script>
-
 <style>
 
 </style>

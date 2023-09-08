@@ -3,7 +3,9 @@
     <h1>All Blog Article</h1>
     <input type="text" style="width:96%;padding:10px" placeholder="Seach Blogs" v-model="search">
     <div class="single-blog" v-for="(blog,index) in filterBlogs" :key="index">
-        <h3 v-rainbow>{{blog.title | to-uppercase}}</h3>
+        <!-- <router-link :to="`/blogDetail/${blogs.id}`"> -->
+            <h3 v-rainbow>{{blog.title | to-uppercase}}</h3>
+        <!-- </router-link> -->
         <article>{{blog.body | shotter}}</article>
     </div>
   </div>
@@ -28,8 +30,24 @@ export default {
                 return data.title.match(this.search)
             })
         }
+    },
+    filters:{
+        toUppercase(data){
+            return data.toUpperCase()
+        },
+        shotter(data){
+            return data.slice(0,100) + " " + "..."
+        }
+    },
+    directives:{
+        "rainbow": {
+            bind(el){
+                return el.style.color = "#" + Math.random().toString().slice(2,8)
+            }
+        }
     }
 }
+
 </script>
 
 <style scoped>
